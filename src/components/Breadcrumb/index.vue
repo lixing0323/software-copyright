@@ -1,9 +1,9 @@
 <template>
   <el-breadcrumb class="app-breadcrumb" separator="/">
     <transition-group name="breadcrumb">
-      <el-breadcrumb-item v-for="(item,index) in levelList" :key="item.path" class="title" >
-        <a v-if="item.redirect==='noRedirect'||index==levelList.length-1">{{ item.meta.title }}</a>
-        <a v-else class="no-redirect" @click.prevent="handleLink(item)">{{ item.meta.title }}</a>
+      <el-breadcrumb-item v-for="(item,index) in levelList" :key="item.path" class="title">
+        <a v-if="item.redirect==='noRedirect'||index==levelList.length-1">{{ generateTitle(item.meta.title) }}</a>
+        <a v-else class="no-redirect" @click.prevent="handleLink(item)">{{ generateTitle(item.meta.title) }}</a>
       </el-breadcrumb-item>
     </transition-group>
   </el-breadcrumb>
@@ -11,6 +11,7 @@
 
 <script>
 import pathToRegexp from 'path-to-regexp'
+import { generateTitle } from '@/utils/i18n'
 
 export default {
   data() {
@@ -31,6 +32,7 @@ export default {
     this.getBreadcrumb()
   },
   methods: {
+    generateTitle,
     getBreadcrumb() {
       // only show routes with meta.title
       let matched = this.$route.matched.filter(item => item.meta && item.meta.title)

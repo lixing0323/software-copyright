@@ -1,24 +1,28 @@
 <template>
-  <div class="dashboard">
-    <map-show />
+  <div class="dashboard-container">
+    <component :is="currentRole" />
   </div>
 </template>
 
 <script>
-import MapShow from './map'
+import { mapGetters } from 'vuex'
+import adminDashboard from './admin'
+import editorDashboard from './editor'
 
 export default {
-  components: { MapShow },
+  name: 'Dashboard',
+  components: { adminDashboard, editorDashboard },
   data() {
     return {
+      currentRole: 'adminDashboard'
     }
   },
-  created() {
+  computed: {
+    ...mapGetters([
+      'roles'
+    ])
   },
-  methods: {
+  created() {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-</style>

@@ -1,3 +1,6 @@
+export const SHORT_NAME = '气象减灾防灾'
+const LongName = `${SHORT_NAME}观测数据服务系统`
+
 export default {
   route: {
     list: '列表',
@@ -9,7 +12,16 @@ export default {
     dataManagement: '数据管理',
     one: '基本信息',
     two: '地貌/土壤信息',
-    three: '类别详情'
+    three: '类别详情',
+    logoTitle: `${SHORT_NAME}`,
+    loginTitle: `${LongName}`,
+    platformStatisticsManagement: `${SHORT_NAME}统计管理`,
+    platformStatisticsConfig: `${SHORT_NAME}统计配置`,
+    platformStatisticsRecovery: `${SHORT_NAME}统计恢复`,
+    show: `数据展示`,
+    log: '日志管理',
+    data: '数据管理',
+    user: '用户管理'
   },
   navbar: {
     dashboard: '首页',

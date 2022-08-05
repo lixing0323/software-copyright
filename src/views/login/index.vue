@@ -1,7 +1,9 @@
 <template>
   <div class="login">
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" autocomplete="on" label-position="left">
-      <div class="login-title" />
+      <div class="login-title">
+        {{ generateTitle('loginTitle') }}
+      </div>
       <div class="login-div">
         <div class="login-container">
           <div class="input-container">
@@ -34,6 +36,7 @@
 </template>
 
 <script>
+import { generateTitle } from '@/utils/i18n'
 
 export default {
   name: 'Login',
@@ -75,6 +78,7 @@ export default {
   mounted() {
   },
   methods: {
+    generateTitle,
     showPwd() {
       if (this.passwordType === 'password') {
         this.passwordType = ''
@@ -114,10 +118,10 @@ html,body{
   background: #1B232C;
 }
 .login-title{
-  width: 486px;
-  height: 50px;
-  background: url("../../assets/title.png") no-repeat;
-  margin: 0 auto;
+  text-align: center;
+  font-size: 30px;
+  color: #FFFFFF;
+  font-weight: bold;
 }
 .login{
   height: 482px;
@@ -130,7 +134,7 @@ html,body{
   .login-div{
     background: url("../../assets/bg.png") no-repeat;
     width: 100%;
-    height: 400px;
+    height: 420px;
     position: absolute;
     bottom: 0;
     left: 0;

@@ -64,12 +64,12 @@ export const constantRoutes = [
   },
   {
     path: '/',
-    component: () => import('@/views/CommonRouterView'),
+    component: Layout,
     redirect: '/dashboard',
     children: [
       {
         path: 'dashboard',
-        component: Layout,
+        component: () => import('@/views/dashboard/index'),
         name: 'Dashboard',
         meta: { title: '工作台', icon: 'dashboard', affix: true }
       }

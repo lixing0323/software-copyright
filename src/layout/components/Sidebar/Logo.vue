@@ -5,7 +5,7 @@
         <img v-if="logo" :src="logo" class="sidebar-logo">
       </router-link>
       <router-link v-else key="expand" class="sidebar-logo-link" to="/">
-        <img v-if="logo" :src="logo" class="sidebar-logo">
+        <h1 class="sidebar-title">{{ generateTitle('logoTitle') }} </h1>
       </router-link>
     </transition>
   </div>
@@ -13,6 +13,7 @@
 
 <script>
 import LogoImage from '@/assets/logo.png'
+import { generateTitle } from '@/utils/i18n'
 
 export default {
   name: 'SidebarLogo',
@@ -24,9 +25,12 @@ export default {
   },
   data() {
     return {
-      title: '衡刻科技',
+      title: '',
       logo: LogoImage
     }
+  },
+  methods: {
+    generateTitle
   }
 }
 </script>
@@ -53,6 +57,7 @@ export default {
   & .sidebar-logo-link {
     height: 100%;
     width: 100%;
+    color: #FFFFFF;
 
     & .sidebar-logo {
       width: 35px;
