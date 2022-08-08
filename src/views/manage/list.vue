@@ -3,7 +3,7 @@
     <ht-action-panel>
       <template slot="left">
         <el-input v-model="listQuery.name" placeholder="请输入名称" class="search-item" clearable @keyup.enter.native="onSearch" />
-        <el-input v-model="listQuery.name" placeholder="请输入介绍" class="search-item" clearable @keyup.enter.native="onSearch" />
+        <el-input v-model="listQuery.introduce" placeholder="请输入介绍" class="search-item" clearable @keyup.enter.native="onSearch" />
         <search-clear-buttons @on-search="onSearch()" @on-clear="onClear()" />
       </template>
       <template slot="right">
